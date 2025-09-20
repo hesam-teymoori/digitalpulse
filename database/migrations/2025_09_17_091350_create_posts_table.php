@@ -16,10 +16,13 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
+            $table->string('image')->nullable();
             $table->string('author' , 50);
             $table->string('title' , 60);
-            $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
+            $table->text('excerpt')->nullable();
             $table->text('content');
+            $table->unsignedBigInteger('views')->default(0);
             $table->timestamps();
         });
     }
