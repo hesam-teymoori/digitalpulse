@@ -40,7 +40,7 @@ class AdminPostController extends Controller
 
      $post->save();
 
-     return redirect('/admin/dashboard')->with('mssg', 'پست شما با موفقیت ایجاد شد!');
+     return redirect('admin.dashboard')->with('mssg', 'پست شما با موفقیت ایجاد شد!');
   }
   
   public function edit($id)
@@ -76,7 +76,7 @@ class AdminPostController extends Controller
 
     $post->save();
 
-    return redirect('/admin/dashboard')->with('mssg', 'پست با موفقیت ویرایش شد!');
+    return redirect('admin.dashboard')->with('mssg', 'پست با موفقیت ویرایش شد!');
 }
  
 

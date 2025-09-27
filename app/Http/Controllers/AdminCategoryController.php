@@ -24,5 +24,5 @@ class AdminCategoryController extends Controller
             'category' => $category,
             'posts' => $posts,
         ]);
-    }    
+    }  
 }
