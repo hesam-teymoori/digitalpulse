@@ -15,6 +15,8 @@
                     @endauth
                 </div>
             @endif
+
+            <a href="{{ route('posts.create') }}">ساخت پست</a>
            
            <h1>دسته‌بندی‌ها</h1>
 
@@ -52,5 +54,12 @@
     <a href="{{ route('categories.show', $category->id) }}">مشاهده همه پست‌های {{ $category->name }}</a>
 @endforeach
 
-            
+     @if(session('mssg'))
+    <div class="alert alert-success">
+        {{ session('mssg') }}
+    </div>
+    @endif
+
+
+
 @endsection    

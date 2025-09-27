@@ -19,4 +19,83 @@ class PostController extends Controller
 
         return view('posts.show', ["post" => $post]);
     }
+
+    public function create(){
+        $categories = Category::all();
+
+        return view('posts.create', [
+          'categories' => $categories
+        ]);
+    }  
+
+
+    public function store(){
+
+        $post = new Post();
+       
+       $post->title       = request('title');
+       $post->category_id = request('category_id');
+       $post->author      = request('author');
+       $post->excerpt     = request('excerpt');
+       $post->content     = request('content');
+         
+       if (request()->hasFile('image')) {
+           $post->image = request()->file('image')->store('posts', 'public');
+       }
+   
+        $post->save();
+   
+        return redirect('/')->with('mssg', 'پست شما با موفقیت ایجاد شد!');
+     }
+
+    public function edit($id)
+    {
+       $post = Post::findOrFail($id);
+
+       $categories = Category::all();
+
+        return view('posts.edit', [
+        'post' => $post,
+        'categories' => $categories
+        ]);
+    }
+
+
+    public function update(Request $request, $id)
+    {
+      $post = Post::findOrFail($id);
+
+      $post->title       = $request->title;
+      $post->category_id = $request->category_id;
+      $post->author      = $request->author;
+      $post->excerpt     = $request->excerpt;
+      $post->content     = $request->content;
+
+
+      if ($request->hasFile('image')) {
+      if ($post->image && \Storage::disk('public')->exists($post->image)) {
+        \Storage::disk('public')->delete($post->image);
+      }
+      $post->image = $request->file('image')->store('posts', 'public');
+      }
+
+
+      $post->save();
+
+      return redirect('/')->with('mssg', 'پست با موفقیت ویرایش شد!');
+    }
+
+    public function destroy($id)
+    {
+       $post = Post::findOrFail($id);
+
+        if ($post->image && \Storage::disk('public')->exists($post->image)) {
+            \Storage::disk('public')->delete($post->image);
+        }
+
+       $post->delete(); 
+
+       return redirect()->route('home')->with('mssg', 'پست با موفقیت حذف شد!');
+    }
+
 }

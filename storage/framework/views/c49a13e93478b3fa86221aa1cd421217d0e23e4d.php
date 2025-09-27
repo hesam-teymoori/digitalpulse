@@ -1,12 +1,12 @@
- @extends('layouts.layout')
+ 
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 <div>
   <h1>create a new post</h1>
-  <form action= "{{ route('admin.posts.store') }}"method="POST"  enctype="multipart/form-data">
-        @csrf
+  <form action= "<?php echo e(route('posts.store')); ?>"method="POST"  enctype="multipart/form-data">
+        <?php echo csrf_field(); ?>
         
          <label for="title">عنوان</label>
         <input type="text" name="title" id="title" required>
@@ -15,9 +15,9 @@
         <label for="category_id">دسته‌بندی</label>
             <select name="category_id" id="category_id" required>
                 <option value=""></option>
-                @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option> 
-                @endforeach    
+                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <option value="<?php echo e($category->id); ?>"><?php echo e($category->name); ?></option> 
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>    
             </select>
         <br>
         <br>
@@ -39,7 +39,7 @@
           <br>
           <br>
           <button type="submit" class="btn btn-success">ذخیره پست</button>
-        <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary">انصراف</a>
+        <a href="<?php echo e(route('home')); ?>" class="btn btn-secondary">انصراف</a>
 
 
 
@@ -52,4 +52,5 @@
       
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\user\Desktop\digital\DigitalPulse\resources\views/posts/create.blade.php ENDPATH**/ ?>

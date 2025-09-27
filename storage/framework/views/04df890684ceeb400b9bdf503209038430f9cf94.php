@@ -17,6 +17,17 @@
     </div>
 
     <p>بازدید: <?php echo e($post->views); ?></p>
+
+    <a href="<?php echo e(route('posts.edit', $post->id)); ?>">ویرایش پست</a>
+  
+
+  <form action="<?php echo e(route('posts.destroy', $post->id)); ?>" method="POST" >
+      <?php echo csrf_field(); ?>
+      <?php echo method_field('DELETE'); ?>
+      <button type="submit" >حذف</button>
+  </form>       
+
+
 </div>
 
 <?php $__env->stopSection(); ?>

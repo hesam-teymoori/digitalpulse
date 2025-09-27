@@ -5,7 +5,7 @@
 
 <div>
     <h1>Edit post</h1>
-    <form action= "{{ route('admin.posts.update' ,$post->id) }}"method="POST"  enctype="multipart/form-data">
+    <form action= "{{ route('posts.update' ,$post->id) }}"method="POST"  enctype="multipart/form-data">
         @csrf
         @method('PUT')
          <label for="title">عنوان</label>
@@ -40,7 +40,7 @@
           <br>
           <br>
           <button type="submit" class="btn btn-success">ذخیره پست</button>
-          <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary">انصراف</a>
+          <a href="{{ route('home') }}" class="btn btn-secondary">انصراف</a>
     </form>     
 </div>
       
