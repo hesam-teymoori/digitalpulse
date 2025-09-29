@@ -17,12 +17,12 @@ class HomeController extends Controller
             'categories' => $categories
         ]);
 
-         $categories = Category::with(['posts' => function($query) {
+        $categories = Category::with(['posts' => function($query) {
         $query->latest()->take(2); 
-    }])->get();
+        }])->get();
 
-    return view('home', [
+        return view('home', [
         'categories' => $categories
-    ]);
+        ]);
     }
 }

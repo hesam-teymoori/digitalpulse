@@ -2,8 +2,8 @@
 
 <?php $__env->startSection('content'); ?>
 
-   <div>
-<h1>دسته‌بندی: <?php echo e($category->name); ?></h1>
+
+<h1>دسته‌بندی: <?php echo e($categories->name); ?></h1>
 
 <?php if($posts->count()): ?>
     <ul>
@@ -14,22 +14,14 @@
             </li>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </ul>
-      
+
     <?php echo e($posts->links()); ?>
 
 <?php else: ?>
     <p>هیچ پستی در این دسته وجود ندارد.</p>
 <?php endif; ?>
-       
-    <a href="<?php echo e(route('categories.edit', $category->id)); ?>">ویرایش دسته بندی</a>
 
 
-    <form action="<?php echo e(route('categories.destroy', $category->id)); ?>" method="POST" >
-      <?php echo csrf_field(); ?>
-      <?php echo method_field('DELETE'); ?>
-      <button type="submit" >حذف</button>
-    </form>
-   </div>
 
 
 
@@ -42,4 +34,4 @@
 
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\user\Desktop\digital\DigitalPulse\resources\views/category/show.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\user\Desktop\digital\DigitalPulse\resources\views/categories/show.blade.php ENDPATH**/ ?>

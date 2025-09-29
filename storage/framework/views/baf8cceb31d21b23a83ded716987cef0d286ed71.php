@@ -15,7 +15,7 @@
             <?php endif; ?>
 
             <a href="<?php echo e(route('posts.create')); ?>">ساخت پست</a>
-           
+            <a href="<?php echo e(route('categories.create')); ?>">ساخت دسته بندی</a>
            <h1>دسته‌بندی‌ها</h1>
 
             <ul>
@@ -55,11 +55,20 @@
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
      <?php if(session('mssg')): ?>
-    <div class="alert alert-success">
+    <div>
         <?php echo e(session('mssg')); ?>
 
     </div>
     <?php endif; ?>
+     
+    <?php if(session('success')): ?>
+    <div>
+        <?php echo e(session('success')); ?>
+
+    </div>
+<?php endif; ?>
+    
+
 
 
 

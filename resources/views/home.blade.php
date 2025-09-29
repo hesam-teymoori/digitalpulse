@@ -17,7 +17,7 @@
             @endif
 
             <a href="{{ route('posts.create') }}">ساخت پست</a>
-           
+            <a href="{{ route('categories.create') }}">ساخت دسته بندی</a>
            <h1>دسته‌بندی‌ها</h1>
 
             <ul>
@@ -55,10 +55,18 @@
 @endforeach
 
      @if(session('mssg'))
-    <div class="alert alert-success">
+    <div>
         {{ session('mssg') }}
     </div>
     @endif
+     
+    @if (session('success'))
+    <div>
+        {{ session('success') }}
+    </div>
+@endif
+    
+
 
 
 

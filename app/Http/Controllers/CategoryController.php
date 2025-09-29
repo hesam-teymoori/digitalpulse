@@ -20,4 +20,52 @@ class CategoryController extends Controller
       ]);
     
     }
+
+    public function create()
+    {
+        return view('category.create');
+    }
+    
+    public function store()
+    {
+      $category = new Category();
+
+      $category->name  =request('name');
+      $category->slug  =request('slug');
+
+      $category->save();
+   
+        return redirect('/')->with('mssg', 'دسته‌بندی با موفقیت ایجاد شد!');
+    }
+
+    public function edit($id)
+    {
+      $category = Category::findOrFail($id);
+
+      return view('category.edit', [
+        'category' => $category
+      ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+      $category = Category::findOrFail($id);
+
+      $category->name =$request->name;
+      $category->slug =$request->slug;
+
+      $category->save();
+
+      return redirect('/')->with('mssg', 'دسته بندی با موفقیت ویرایش شد' );
+    } 
+
+    public function destroy($id)
+    {
+         $category = Category::findOrFail($id);
+ 
+         $category->delete();
+
+          return redirect('/')->with('success', 'دسته‌بندی با موفقیت حذف شد.');
+    }    
+
 }
