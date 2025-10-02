@@ -1,37 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
 
-            <a href="{{ route('posts.create') }}">ساخت پست</a>
-            <a href="{{ route('categories.create') }}">ساخت دسته بندی</a>
-           <h1>دسته‌بندی‌ها</h1>
-
-            <ul>
-                @foreach($categories as $category)
-                    <li>
-                        <a href="{{ route('categories.show', $category->id) }}">
-                            {{ $category->name }}
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-                 
-
-            <h1>صفحه اصلی وبلاگ</h1>
 
 @foreach($categories as $category)
     <h2>{{ $category->name }}</h2>
