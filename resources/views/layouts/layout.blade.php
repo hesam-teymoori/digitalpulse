@@ -21,8 +21,8 @@
         </head>
       <body>
         <!-- header -->
-    <div class="container-fluid p-0 " dir="rtl">
-        <header class="pb-2 vazir-header"> 
+    <div class="container-fluid p-0 ">
+        <header class="pb-2 vazir"> 
            <div class="d-flex align-items-center custom-bg">
               <a href="/" class="d-flex align-items-center text-decoration-none mx-3 my-2">
                    <img src="{{ asset('images/logo.png') }}" alt="لوگو" width="150" height="80" class="ms-2">   
@@ -78,11 +78,72 @@
                 </div>
             </div>
       </header>
-  </div>    
+  </div>
+
+  @yield('content') 
+  
+  <!-- footer -->
+  <footer class="container-fluid bg-light border-top pt-5 mt-5">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4 vazir">
       
-      
-         
-        @yield('content')
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-      </body>
+        <!-- Logo column -->
+        <div class="col d-flex flex-column align-items-start">
+          <a href="/" class="mb-3">
+            <img src="{{ asset('images/logo.png') }}" alt="لوگو" width="220" height="100">
+          </a>
+          <small class="text-muted">مأموریت ما، ساده‌تر کردن دنیای تکنولوژی برای همه</small>
+        </div>
+        <!-- Quick access column -->
+        <div class="col mb-3">
+          <h5 class="me-4">دسترسی سریع</h5>
+          <hr>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-body-secondary">صفحه اصلی</a></li>
+            @foreach($categories as $category)
+              <li class="nav-item mb-2 ">
+                <a href="{{ route('categories.show', $category->id) }}" class="nav-link p-0 text-body-secondary">
+                  {{ $category->name }}
+                </a>
+              </li>
+            @endforeach
+          </ul>
+        </div>
+        <!-- Column about us -->
+        <div class="col mb-3">
+          <h5>درباره ما</h5>
+          <hr>
+          <p class="text-body-secondary mb-5">دیجیتال‌پالس یک وبلاگ تخصصی تکنولوژی است که تازه‌ترین خبرها، مقالات و تحلیل‌های دنیای فناوری را با زبانی ساده و کاربردی منتشر می‌کند. هدف ما همراهی شما در کشف دنیای دیجیتال و آگاهی از آخرین ترندهای تکنولوژی است.  </p>
+        </div>
+        <!-- Contact us column -->
+        <div>
+          <h5>ارتباط با ما</h5>
+          <hr>
+          <ul class="nav flex-column">
+           <li class="nav-item mb-2">
+             <a href="mailto:hesamt519@gmail.com" class="nav-link p-0 text-body-secondary">
+                📧 hesamt519@gmail.com
+             </a>
+           </li>
+            <li class="nav-item mb-2">
+              <a href="tel:+982112345678" class="nav-link p-0 text-body-secondary">
+                ☎️ 021-12345678
+             </a>
+           </li>
+         </ul>
+          <div class="d-flex gap-3 mt-2 me-5">
+          <a href="#" class="text-body-secondary fs-4"><i class="bi bi-telegram"></i></a>
+          <a href="#" class="text-body-secondary fs-4"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-body-secondary fs-4"><i class="bi bi-twitter"></i></a>
+          </div>
+       </div>
+     </div>
+    </div>
+    <!-- Copyright section -->
+    <div class="py-3 text-body-secondary vazir ">
+      <small class="text-muted me-3">© 2025 دیجیتال‌پالس - همه حقوق محفوظ است</small>
+    </div>
+  </footer>      
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
