@@ -7,3 +7,36 @@
  .vazir {
     font-family: 'Vazir', sans-serif;
 }
+.card-hover {
+    transition: transform 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: scale(1.05);
+}
+.card-cover {
+    min-height: 250px; 
+    max-height: 250px;
+}
+@media (max-width: 767.98px) {
+  .horizontal-scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-left: 1rem;
+    gap: 1rem;
+  }
+
+  .horizontal-scroll::-webkit-scrollbar {
+    display: none; 
+  }
+
+  .scroll-item {
+    flex: 0 0 80%; 
+    scroll-snap-align: start;
+  }
+}
+
+
