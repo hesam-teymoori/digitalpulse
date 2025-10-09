@@ -14,17 +14,17 @@ class HomeController extends Controller
         
         $categories = Category::all();
     
-
-        $categoriesWithPosts = Category::with(['posts' => function($query) {
-        $query->latest()->take(2); 
-        }])->get();
-        
         $posts = Post::latest()->get();
+
+        $numberposts = Post::latest()->paginate(10);
+
+        $hotPosts = Post::orderBy('views', 'desc')->take(4)->get();
 
         return view('home', [
         'categories' => $categories,
-        'categoriesWithPosts' => $categoriesWithPosts,
         'posts' => $posts,
+        'hotPosts' => $hotPosts,
+        'numberposts' => $numberposts,
         ]);
     }
 }

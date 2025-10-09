@@ -18,6 +18,10 @@
     min-height: 250px; 
     max-height: 250px;
 }
+.list-card {
+   min-height: 400px; 
+   max-height: 400px;
+}
 @media (max-width: 767.98px) {
   .horizontal-scroll {
     display: flex;
@@ -38,5 +42,24 @@
     scroll-snap-align: start;
   }
 }
+.text-hot {
+  color: #004b94;
+}
+.fixed-image {
+  height: 200px;    
+  object-fit: cover;     
+  width: 100%;          
+}
+.category-label {
+  display: inline-block;
+  background-color: #0650c0d3;  
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 50px;        
+  text-transform: uppercase;
+}
+
 
 

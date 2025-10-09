@@ -56,7 +56,7 @@
            <!-- navbarmobile -->   
           <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
               <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="mobileMenuLabel">منو</h5>
+                  <h1 class="offcanvas-title" id="mobileMenuLabel">منو</h1>
                   <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="بستن"></button>
                </div>
                <div class="offcanvas-body">

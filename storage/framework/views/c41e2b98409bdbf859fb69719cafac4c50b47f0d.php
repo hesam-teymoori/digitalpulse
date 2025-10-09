@@ -57,7 +57,7 @@
            <!-- navbarmobile -->   
           <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
               <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="mobileMenuLabel">منو</h5>
+                  <h1 class="offcanvas-title" id="mobileMenuLabel">منو</h1>
                   <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="بستن"></button>
                </div>
                <div class="offcanvas-body">
@@ -71,7 +71,6 @@
                       </li>
                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                    </ul>
-
                    <div class="d-grid gap-2">
                      <a href="<?php echo e(route('posts.create')); ?>" class="btn btn-primary w-100">ساخت پست</a>
                      <a href="<?php echo e(route('categories.create')); ?>" class="btn btn-secondary w-100">ساخت دسته بندی</a>
@@ -85,12 +84,10 @@
   <?php echo $__env->yieldContent('content'); ?>
   </main>
 
-  
   <!-- footer -->
   <footer class="container-fluid bg-light border-top pt-5">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
-      
         <!-- Logo column -->
         <div class="col d-flex flex-column align-items-start">
           <a href="/" class="mb-3">
