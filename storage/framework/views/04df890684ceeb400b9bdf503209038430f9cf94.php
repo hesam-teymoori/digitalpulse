@@ -1,6 +1,34 @@
 
 
 <?php $__env->startSection('content'); ?>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb p-3 mt-3">    
+      <li class="breadcrumb-item">
+           <a href="/">
+             <i class="bi bi-house-door-fill text-primary"></i>
+             <span class="visually-hidden">خانه</span>
+           </a>
+       </li>
+      <li class="breadcrumb-item">
+      </li>
+       <?php if(isset($category)): ?>
+            <li class="breadcrumb-item active" aria-current="page">
+                <a href="<?php echo e(route('categories.show', $category->id)); ?>">
+                    <?php echo e($category->name); ?>
+
+                </a>
+            </li>
+        <?php endif; ?>
+        <li class="breadcrumb-item">
+        </li>
+        <?php if(isset($post)): ?>
+            <li class="breadcrumb-item active" aria-current="page">
+                <?php echo e($post->title); ?>
+
+            </li>
+        <?php endif; ?>
+   </ol>
+</nav>
 <div class="post-detail">
     <h1><?php echo e($post->title); ?></h1>
     <p>نویسنده: <?php echo e($post->author); ?></p>

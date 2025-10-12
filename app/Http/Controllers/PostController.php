@@ -17,7 +17,12 @@ class PostController extends Controller
 
         $post->incrementViews();
 
-        return view('posts.show', ["post" => $post]);
+        $category = $post->category;
+
+        return view('posts.show', [
+          "post" => $post,
+          "category" => $category
+        ]);
     }
 
     public function create(){

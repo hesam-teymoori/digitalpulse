@@ -60,6 +60,20 @@
   border-radius: 50px;        
   text-transform: uppercase;
 }
+  .breadcrumb-item + .breadcrumb-item::before {
+    font-family: "bootstrap-icons";
+    content: "\f284"; 
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0.5rem;
+    font-size: 1rem;
+    color: #6c757d;
+  }
+  .breadcrumb-item.active::before {
+    content: none;
+  }
+  
+
 
 
 

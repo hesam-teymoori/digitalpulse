@@ -31,7 +31,6 @@
 </div>
 
 <!-- Mobile: Horizontal scroll -->
-
   <div class="d-md-none">
     <div class="horizontal-scroll">
       <?php $__currentLoopData = $posts->take(6); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -60,14 +59,12 @@
     </div>
   </div>
 
-
+<!-- Hottest Posts Section -->
 <div class="containe-mt5 custom-bg rounded-4 mx-3">
-  
     <h3 class="fs-5 mt-5 me-4 pt-4 text-primary-emphasis">داغ ترین های امروز</h3>
   <div class="row g-4 py-5 row-cols-2 row-cols-lg-4">
     <?php $__currentLoopData = $hotPosts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index =>  $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div class="col d-flex align-items-start" style="<?php echo e(($index < count($hotPosts) - 1) ? 'border-left: 1px solid #bbb0b05b;' : ''); ?>" >
-      
       <div>
         <a href="<?php echo e(route('posts.show', $post->id)); ?>" class="text-decoration-none">
         <h3 class="fs-6 me-4 text-hot"><?php echo e($post->title); ?></h3>
@@ -83,9 +80,9 @@
     </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </div>
-  
 </div>
 
+<!-- New posts list section -->
 <div class="container py-5">
   <h3 class="fs-3 mt-5 my-5 pt-4 text-primary-emphasis">تازه های امروز</h3>
   <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3 d-none d-md-flex">
@@ -120,6 +117,7 @@
   </div>
 </div>
 
+<!-- Mobile mode new posts list section -->
 <div class="row d-md-none">
   <?php $__currentLoopData = $numberposts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
    <?php if($index == 0): ?>
@@ -163,6 +161,7 @@
   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
 
+<!-- Paging button -->
 <div class="d-flex justify-content-center mt-4">
   <?php echo e($numberposts->links('pagination::bootstrap-4')); ?>
 

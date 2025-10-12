@@ -16,7 +16,7 @@ class HomeController extends Controller
     
         $posts = Post::latest()->get();
 
-        $numberposts = Post::latest()->paginate(10);
+        $numberposts = Post::latest()->paginate(12);
 
         $hotPosts = Post::orderBy('views', 'desc')->take(4)->get();
 
