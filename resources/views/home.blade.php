@@ -89,8 +89,10 @@
     @foreach ($numberposts as $post)
     <div class="col">
       <div class="card h-100 shadow-sm rounded-4 shadow-lg  overflow-hidden">
+        <a href="{{ route('posts.show', $post->id) }}">
         <img src="{{ asset('storage/'.$post->image)}}" alt="{{ $post->title }}"
-      class="card-img-top fixed-image">
+        class="card-img-top fixed-image">
+        </a>
         <div class="card-body">
           @if($post->category)
             <span class="category-label mb-2">

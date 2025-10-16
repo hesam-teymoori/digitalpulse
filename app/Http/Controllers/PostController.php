@@ -15,13 +15,22 @@ class PostController extends Controller
 
         $post = Post::findOrFail($id);
 
+        $hotPosts = Post::orderBy('views', 'desc')->take(6)->get();
+
+        $latestPosts = Post::where('id', '!=', $post->id)->latest()->take(6)->get();
+
         $post->incrementViews();
 
         $category = $post->category;
 
+        $relatedPosts = Post::where('category_id', $post->category_id)->where('id', '!=', $post->id)->latest()->take(4)->get();
+
         return view('posts.show', [
           "post" => $post,
-          "category" => $category
+          "category" => $category,
+          "hotPosts" => $hotPosts,
+          "latestPosts" => $latestPosts,
+          "relatedPosts" => $relatedPosts
         ]);
     }
 

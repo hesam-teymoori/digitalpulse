@@ -1,46 +1,46 @@
  .custom-bg {
-    background-color:  #f6f9fd;
+  background-color:  #f6f9fd;
 }
  .custom-bg-nav {
   background-color: #f0f4fc;
  }
  .vazir {
-    font-family: 'Vazir', sans-serif;
+  font-family: 'Vazir', sans-serif;
 }
 .card-hover {
-    transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .card-hover:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 .card-cover {
-    min-height: 250px; 
-    max-height: 250px;
+  min-height: 250px; 
+  max-height: 250px;
 }
 .list-card {
-   min-height: 400px; 
-   max-height: 400px;
+  min-height: 400px; 
+  max-height: 400px;
 }
 @media (max-width: 767.98px) {
-  .horizontal-scroll {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-left: 1rem;
-    gap: 1rem;
-  }
+.horizontal-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-left: 1rem;
+  gap: 1rem;
+}
 
-  .horizontal-scroll::-webkit-scrollbar {
-    display: none; 
-  }
+.horizontal-scroll::-webkit-scrollbar {
+  display: none; 
+}
 
-  .scroll-item {
-    flex: 0 0 80%; 
-    scroll-snap-align: start;
-  }
+.scroll-item {
+  flex: 0 0 80%; 
+  scroll-snap-align: start;
+}
 }
 .text-hot {
   color: #004b94;
@@ -60,20 +60,52 @@
   border-radius: 50px;        
   text-transform: uppercase;
 }
-  .breadcrumb-item + .breadcrumb-item::before {
-    font-family: "bootstrap-icons";
-    content: "\f284"; 
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 0.5rem;
-    font-size: 1rem;
-    color: #6c757d;
+.breadcrumb-item + .breadcrumb-item::before {
+  font-family: "bootstrap-icons";
+  content: "\f284"; 
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.5rem;
+  font-size: 1rem;
+  color: #6c757d;
+}
+.breadcrumb-item.active::before {
+  content: none;
+}
+.content-margin{
+  margin-top: 90px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  margin-left: 20px;
+}
+@media (max-width: 767.98px) {
+  .content-margin {
+    margin-right: 20px; 
+    margin-top: 40px;
+    margin-left: 20px;
   }
-  .breadcrumb-item.active::before {
-    content: none;
-  }
-  
-
-
+}
+.veiw-margin{
+  margin-right: 38px;
+}
+.veiw-posts{
+  margin-top: 90px;
+}
+#backToTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+#backToTopBtn:hover {
+  background-color: #0b5ed7;
+}
 
 

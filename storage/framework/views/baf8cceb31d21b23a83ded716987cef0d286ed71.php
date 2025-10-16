@@ -89,8 +89,10 @@
     <?php $__currentLoopData = $numberposts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div class="col">
       <div class="card h-100 shadow-sm rounded-4 shadow-lg  overflow-hidden">
+        <a href="<?php echo e(route('posts.show', $post->id)); ?>">
         <img src="<?php echo e(asset('storage/'.$post->image)); ?>" alt="<?php echo e($post->title); ?>"
-      class="card-img-top fixed-image">
+        class="card-img-top fixed-image">
+        </a>
         <div class="card-body">
           <?php if($post->category): ?>
             <span class="category-label mb-2">

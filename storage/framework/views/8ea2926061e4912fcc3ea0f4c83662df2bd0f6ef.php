@@ -123,10 +123,9 @@
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
       </div>
-      
+      <!-- Posts Section:Mobile -->
       <div class="row d-md-none">
   <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-   
      <div class="col-12 mb-3 position-relative mt-5">
        <div class="d-flex align-items-center border-bottom pb-4">
          <img src="<?php echo e(asset('storage/'.$post->image)); ?>" alt="<?php echo e($post->title); ?>" class="flex-shrink-0 rounded-3 position-absolute top-0 start-0  ms-4" style="width: 100px; height: 80px; object-fit: cover;">
@@ -138,18 +137,19 @@
          </div>
        </div>
       </div>
-    
   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
+    <!-- Paging button -->
     <div class="d-flex justify-content-center mt-4">
     <?php echo e($posts->links('pagination::bootstrap-4')); ?>
 
     </div>
+    <!-- page no posts -->
     <?php else: ?>
     <div class="container text-center mt-5">
       <img src="<?php echo e(asset('images/no posts.png')); ?>" class="img-fluid " alt="تصویر شما"
       width="500" height="500">
-    <p class="text-secondary mb-3 fs-5">هیچ پستی در این دسته وجود ندارد</p>
+      <p class="text-secondary mb-3 fs-5">هیچ پستی در این دسته وجود ندارد</p>
     </div>
     <?php endif; ?>
   </div>
