@@ -1,0 +1,48 @@
+<form action="<?php echo e($action); ?>" method="POST">
+    <!-- Protects the form against Cross-Site Request Forgery (CSRF) attacks -->
+    <?php echo csrf_field(); ?>
+    <?php if($method === 'PUT'): ?>
+        <?php echo method_field('PUT'); ?>
+    <?php endif; ?>
+    <!-- Category name input field -->
+    <div class="form-floating mb-3">
+        <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="نام دسته بندی"
+            value="<?php echo e(old('name', $category->name ?? '')); ?>"
+            required
+        >
+        <label for="name" class="text-end" style="right: 0; left: auto; text-align: right;">
+            عنوان دسته بندی
+        </label>
+    </div>
+    <!-- Slug input field (used for URL-friendly name) -->
+    <div class="form-floating mb-3">
+        <input
+            type="text"
+            class="form-control"
+            id="slug"
+            name="slug"
+            placeholder="slug"
+            value="<?php echo e(old('slug', $category->slug ?? '')); ?>"
+            required
+        >
+        <label for="slug" class="text-end" style="right: 0; left: auto; text-align: right;">
+            slug
+        </label>
+    </div> 
+    <!-- Submit and cancel buttons --> 
+    <div class="d-flex justify-content-between mt-4">
+        <button type="submit" class="btn btn-primary">
+            ذخیره دسته‌بندی
+        </button>
+        <a href="<?php echo e(route('home')); ?>" class="btn btn-secondary">
+            انصراف
+        </a>
+    </div>
+              
+</form>
+<?php /**PATH C:\Users\user\Desktop\digital\DigitalPulse\resources\views/layouts/form-category.blade.php ENDPATH**/ ?>
