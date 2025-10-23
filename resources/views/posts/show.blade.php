@@ -12,10 +12,10 @@
     </li>
     <li class="breadcrumb-item">
     </li>
-    @if(isset($category))
+    @if(isset($category) && $post->category)
       <li class="breadcrumb-item active" aria-current="page">
-        <a href="{{ route('categories.show', $category->id) }}">
-          {{ $category->name }}
+        <a href="{{ route('categories.show', $post->category->id) }}">
+          {{ $post->category->name }}
         </a>
       </li>
     @endif
@@ -77,7 +77,7 @@
 <div class="d-flex">
   <div class=" col-md-7">
     <!-- Post body/content -->
-    <div class="content content-margin" style=" color: #16205b ">
+    <div class="content content-margin content-post" style=" color: #16205b ">
       {!! nl2br(e($post->content)) !!}
     </div>
     <!-- Edit & Delete buttons -->
@@ -97,7 +97,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">لغو</button>
-            <form action="{{ route('categories.destroy', $category->id) }}" method="POST" class="d-inline">
+            <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="d-inline">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger">حذف</button>

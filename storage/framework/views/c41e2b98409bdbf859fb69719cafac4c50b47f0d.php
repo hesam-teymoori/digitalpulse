@@ -34,6 +34,10 @@
               </button>
                  <!-- create -->
                  <div class="d-none d-lg-flex me-auto ms-3 ">
+                  <div class="theme-toggle ms-3 me-3" id="themeToggle">
+  <i class="bi bi-moon"></i>
+  <i class="bi bi-sun"></i>
+</div>
                      <a  href="<?php echo e(route('posts.create')); ?>" class="btn btn-primary ms-2">ساخت پست</a>
                      <a  href="<?php echo e(route('categories.create')); ?>" class="btn btn-secondary">ساخت دسته بندی</a>
                  </div>
@@ -162,5 +166,24 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
+  <script>
+  const themeToggle = document.getElementById('themeToggle');
+  const body = document.body;
+
+  // بررسی حالت ذخیره‌شده
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+  }
+
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+      localStorage.setItem('theme', 'dark');
+    } else {
+      localStorage.setItem('theme', 'light');
+    }
+  });
+</script>
+
   </body>
 </html><?php /**PATH C:\Users\user\Desktop\digital\DigitalPulse\resources\views/layouts/layout.blade.php ENDPATH**/ ?>

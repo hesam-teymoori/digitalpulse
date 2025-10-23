@@ -15,7 +15,7 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-    //بخش کاربر خواننده
+    
 Route::get('/', [HomeController::class, 'index'] )->name('home');
 
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');

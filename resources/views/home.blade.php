@@ -164,17 +164,38 @@
 <div class="d-flex justify-content-center mt-4">
   {{ $numberposts->links('pagination::bootstrap-4') }}
 </div>
-
-
-     @if(session('mssg'))
-    <div>
-        {{ session('mssg') }}
-    </div>
-    @endif
-     
-    @if (session('success'))
-    <div>
-        {{ session('success') }}
-    </div>
-    @endif
+@if(session('mssg') || session('success') || session('error') || session('info'))
+@php
+if(session('error')){
+  $type = 'danger';
+  $message = session('error');
+} elseif(session('info')){
+  $type = 'info';
+  $message = session('info');
+} elseif(session('mssg')){
+  $type = 'success';
+  $message = session('mssg');
+} else {
+  $type = 'success';
+  $message = session('success');
+}
+@endphp
+ <div id="flash-message" class="alert alert-{{ $type }} shadow" 
+    style="position: fixed; top: 10%; left: 50%; transform: translate(-50%, -50%);
+    z-index: 1050; opacity: 0; transition: opacity 0.5s; min-width: 200px; text-align: center;">
+    {{ $message }}
+  </div>
+  <script>
+    const flash = document.getElementById('flash-message');
+    if(flash){      
+      flash.style.opacity = '1';      
+      setTimeout(() => {
+        flash.style.opacity = '0';
+      }, 3000);   
+      setTimeout(() => {
+        flash.remove();
+      }, 3500);
+    }
+  </script>
+@endif
 @endsection    

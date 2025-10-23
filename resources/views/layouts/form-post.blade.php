@@ -71,7 +71,7 @@
     placeholder="خلاصه مقاله را وارد کنید"
     id="excerpt"
     name="excerpt"
-    style="height: 120px"
+    style="height: 40px"
     >{{ old('excerpt', $post->excerpt ?? '') }}</textarea>
     <label for="excerpt" class="text-end" style="right: 0; left: auto; text-align: right;">
       خلاصه مقاله
@@ -84,7 +84,7 @@
     placeholder="محتوای مقاله"
     id="content"
     name="content"
-    style="height: 200px"
+    style="height: 50px"
     required
     >{{ old('content', $post->content ?? '') }}</textarea>
     <label for="content" class="text-end" style="right: 0; left: auto; text-align: right;">

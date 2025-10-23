@@ -96,7 +96,7 @@ class PostController extends Controller
 
       $post->save();
 
-      return redirect('/')->with('mssg', 'پست با موفقیت ویرایش شد!');
+      return redirect('/')->with('info', 'پست با موفقیت ویرایش شد!');
     }
 
     public function destroy($id)
@@ -109,7 +109,7 @@ class PostController extends Controller
 
        $post->delete(); 
 
-       return redirect()->route('home')->with('mssg', 'پست با موفقیت حذف شد!');
+       return redirect()->route('home')->with('error', 'پست با موفقیت حذف شد!');
     }
 
 }

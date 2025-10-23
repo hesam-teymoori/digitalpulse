@@ -11,7 +11,7 @@
             class="form-control"
             id="name"
             name="name"
-            placeholder="نام دسته بندی"
+            placeholder="عنوان دسته بندی"
             value="{{ old('name', $category->name ?? '') }}"
             required
         >

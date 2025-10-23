@@ -87,6 +87,32 @@
             "retina_detect": true
         });
     </script>
+    <script>
+const body = document.body;
+
+// بررسی حالت ذخیره‌شده در localStorage
+const savedTheme = localStorage.getItem('theme');
+
+if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+} else {
+    body.classList.remove('dark-mode');
+}
+
+// سوییچ دارک/لایت مود
+const themeToggle = document.getElementById('themeToggle');
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+    });
+}
+</script>
 </body>
 </html>
 <?php /**PATH C:\Users\user\Desktop\digital\DigitalPulse\resources\views/category/edit.blade.php ENDPATH**/ ?>

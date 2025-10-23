@@ -170,19 +170,49 @@
 </div>
 
 
-     <?php if(session('mssg')): ?>
-    <div>
-        <?php echo e(session('mssg')); ?>
+    <?php if(session('mssg') || session('success') || session('error') || session('info')): ?>
+    <?php
+       if(session('error')){
+            $type = 'danger';
+            $message = session('error');
+        } elseif(session('info')){
+            $type = 'info';
+            $message = session('info');
+        } elseif(session('mssg')){
+            $type = 'success';
+            $message = session('mssg');
+        } else {
+            $type = 'success';
+            $message = session('success');
+        }
+    ?>
+     <div id="flash-message" class="alert alert-<?php echo e($type); ?> shadow" 
+         style="position: fixed; top: 10%; left: 50%; transform: translate(-50%, -50%);
+                z-index: 1050; opacity: 0; transition: opacity 0.5s; min-width: 200px; text-align: center;">
+        <?php echo e($message); ?>
 
     </div>
-    <?php endif; ?>
-     
-    <?php if(session('success')): ?>
-    <div>
-        <?php echo e(session('success')); ?>
 
-    </div>
-    <?php endif; ?>
+
+    <script>
+        const flash = document.getElementById('flash-message');
+        if(flash){
+            // ظاهر شدن با انیمیشن
+            flash.style.opacity = '1';
+
+            // بعد از 3 ثانیه محو شدن
+            setTimeout(() => {
+                flash.style.opacity = '0';
+            }, 3000);
+
+            // بعد از 3.5 ثانیه حذف از DOM
+            setTimeout(() => {
+                flash.remove();
+            }, 3500);
+        }
+    </script>
+<?php endif; ?>
+
 <?php $__env->stopSection(); ?>    
 
 <?php echo $__env->make('layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\user\Desktop\digital\DigitalPulse\resources\views/home.blade.php ENDPATH**/ ?>

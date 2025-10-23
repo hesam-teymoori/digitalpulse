@@ -56,7 +56,7 @@ class CategoryController extends Controller
 
       $category->save();
 
-      return redirect('/')->with('mssg', 'دسته بندی با موفقیت ویرایش شد' );
+      return redirect('/')->with('info', 'دسته بندی با موفقیت ویرایش شد' );
     } 
 
     public function destroy($id)
@@ -65,7 +65,7 @@ class CategoryController extends Controller
  
          $category->delete();
 
-          return redirect('/')->with('success', 'دسته‌بندی با موفقیت حذف شد.');
+          return redirect('/')->with('error', 'دسته‌بندی با موفقیت حذف شد.');
     }    
 
 }

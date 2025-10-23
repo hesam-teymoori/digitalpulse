@@ -12,10 +12,10 @@
     </li>
     <li class="breadcrumb-item">
     </li>
-    <?php if(isset($category)): ?>
+    <?php if(isset($category) && $post->category): ?>
       <li class="breadcrumb-item active" aria-current="page">
-        <a href="<?php echo e(route('categories.show', $category->id)); ?>">
-          <?php echo e($category->name); ?>
+        <a href="<?php echo e(route('categories.show', $post->category->id)); ?>">
+          <?php echo e($post->category->name); ?>
 
         </a>
       </li>
@@ -81,7 +81,7 @@
 <div class="d-flex">
   <div class=" col-md-7">
     <!-- Post body/content -->
-    <div class="content content-margin" style=" color: #16205b ">
+    <div class="content content-margin content-post" style=" color: #16205b ">
       <?php echo nl2br(e($post->content)); ?>
 
     </div>
@@ -102,7 +102,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">لغو</button>
-            <form action="<?php echo e(route('categories.destroy', $category->id)); ?>" method="POST" class="d-inline">
+            <form action="<?php echo e(route('posts.destroy', $post->id)); ?>" method="POST" class="d-inline">
             <?php echo csrf_field(); ?>
             <?php echo method_field('DELETE'); ?>
             <button type="submit" class="btn btn-danger">حذف</button>
